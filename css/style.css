@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Fascinate&family=Original+Surfer&display=swap');
 body{
     margin: 0;
     padding: 0;
@@ -9,10 +9,9 @@ body{
 }
 
 .container{
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 50px;
 }
 
 .container-items{
@@ -26,16 +25,33 @@ body{
 }
 
 .container-items .title{
-    font-family: "Emblema One", system-ui;
+    font-family: "Fascinate", system-ui;
     font-size: 3rem;
     text-align: center;
 }
 
 select{
+    font-family: "Original Surfer", sans-serif;
     width: 90%;
     padding: 10px;
     border-radius: 5px;
     background-color: transparent;
+    border-color: #e2a8ff;
+    font-size: 1.2rem;
+}
+
+select:active,
+select:focus{
+    border: 1px solid #594162;
+    outline: none;
+}
+
+option{
+    font-family: "Original Surfer", sans-serif;
+    background-color: #181625;
+    padding: 5px;
+    border-color: #594162;
+    font-size: 1.2rem;
 }
 
 .time{
@@ -47,8 +63,9 @@ select{
 }
 
 .city{
-    box-shadow: inset 3px 5px 7px #594162,
-                 3px 5px 7px #594162;
+    box-shadow: inset 3px 2px 7px #594162,
+                inset -1px -3px 5px #e2a8ff50,
+                 3px 3px 5px #59416250;
     border-radius: 10px;
     padding: 10px;
     display: flex;
@@ -61,7 +78,7 @@ select{
     width: 90%;
 }
 .city .name{
-    font-family: "Fascinate", system-ui;
+    font-family: "Original Surfer", sans-serif;
     margin: 0;
     padding: 10px 0px;
 }
@@ -78,10 +95,42 @@ select{
 .monument{
     width: 75px;
     margin: 15px 0px;
+    filter: drop-shadow(3px 2px 1px #e2a8ff25);
+    transition: ease-in-out 0.5s;
+}
+
+.monument:hover{
+    transform: scale(1.2);
+    rotate: 1deg;
 }
 
 .footer{
     text-align: center;
     padding: 10px 0px;
-    font-family: "Emblema One", system-ui;
+    font-family: "Fascinate", system-ui;
+    font-size: 1.5rem;
+}
+
+@media (max-width:1467px) {
+    .time{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width:1093px) {
+    .time{
+        margin: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+
+@media (max-width:721px) {
+    .time{
+        margin: 25px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 25px;
+    }
 }
