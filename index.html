@@ -3,23 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./images/clock.gif" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/clock.gif" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>World Clock</title>
   </head>
   <body>
     <div class="container">
       <div class="container-items">
         <h1 class="title">World Clock</h1>
-        <select name="" id="">
-          <option value="">Paris</option>
-          <option value="">Yangon</option>
-          <option value="">Tokyo</option>
+        <select name="" id="cities">
+          <option value="">Select a city</option>
+          <option value='Europe/Rome'>Rome</option>
+          <option value='Europe/Berlin'>Berlin</option>
+          <option value='Asia/Seoul'>Seoul</option>
+          <option value='America/Los_Angeles'>Los_Angeles</option>
+          <option value='Africa/Casablanca'>Casablanca</option>
         </select>
 
-        <div class="time">
+        <div id="city_display">
+        
+        </div>
+
+        <div class="time" id="cities_display">
           <div class="paris city">
             <h1 class="name">Paris</h1>
             <hr />
@@ -51,10 +58,12 @@
             <h2 class="clock" id="londonTime">00 : 00 : 00 AM</h2>
             <h4 class="date" id="londonDate">24th (Sat) October, 2024</h4>
           </div>
-<!--  -->
+          <!--  -->
         </div>
-        <div class="footer">Coded by Su <a href="https://github.com/Zahra13s/world-clock">on Github</a></div>
-       
+        <div class="footer">
+          Coded by Su <small>is opened source </small>
+          <a href="https://github.com/Zahra13s/world-clock">on Github</a>
+        </div>
       </div>
     </div>
   </body>
