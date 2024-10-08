@@ -94,7 +94,7 @@ option {
 
 #city_display .city .clock,
 .time .city .clock,
-#city_display .city .dat,
+#city_display .city .date,
 .time .city .date {
   font-family: "Emblema One", system-ui;
   margin: 0;
