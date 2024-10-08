@@ -1,44 +1,53 @@
-function ChangeCity(event){
+function ChangeCity(event) {
     cityDisplay.style.display = "flex"
-    event.preventDefault()
-    if(event.target.value.length > 0){
+    event.preventDefault();
+
+    if (event.target.value.length > 0) {
         let cityTimeZone = event.target.value;
         let cityName = event.target.value.split("/")[1];
         let city = event.target.value.replace("_", " ").split("/")[1];
-        let time = moment().tz(cityTimeZone).format("hh : mm : ss [<small>]A[</small>]");
         let date = moment().format("Do(ddd) MMMM, YYYY");
 
-        if(event.target.value == "current" ){
+        all_cities.style.display = "flex"
+
+        if (event.target.value == "current") {
             cityTimeZone = moment.tz.guess();
-            cityDisplay.innerHTML = 
-        `
+            cityDisplay.innerHTML =
+                `
+        <a href="/">HOme</a>
         <div class="paris city">
             <h1 class="name">My Current Location</h1>
             <hr />
             <img src="./images/current.png" alt="" class="monument" />
-            <h2 class="clock" id="parisTime">${time}</h2>
+            <h2 class="clock" id="cityTime">${moment().tz(cityTimeZone).format("hh : mm : ss [<small>]A[</small>]")}</h2>
             <h4 class="date" id="parisDate">${date}</h4>
           </div>
         `
-        } else{
-            cityDisplay.innerHTML = 
-        `
+        } else {
+            cityDisplay.innerHTML =
+                `
         <div class="paris city">
             <h1 class="name">${city}</h1>
             <hr />
             <img src="./images/${cityName}.png" alt="" class="monument" />
-            <h2 class="clock" id="parisTime">${time}</h2>
+            <h2 class="clock" id="cityTime">${moment().tz(cityTimeZone).format("hh : mm : ss [<small>]A[</small>]")}</h2>
             <h4 class="date" id="parisDate">${date}</h4>
           </div>
         `
         }
-        
+
+        setInterval(function(){
+            let time = moment().tz(cityTimeZone).format("hh : mm : ss [<small>]A[</small>]");
+            let cityTz = document.querySelector("#cityTime")
+            cityTz.innerHTML = time
+        }, 1000)
+
         cities_display.style.display = "none"
     }
-    
+
 }
 
-function ChangeTime(){
+function ChangeTime() {
     let date = moment().format("Do(ddd) MMMM, YYYY")
     paris_date.innerHTML = date;
     yangon_date.innerHTML = date;
@@ -58,6 +67,7 @@ function ChangeTime(){
     london_time.innerHTML = time_london;
 }
 
+let all_cities = document.querySelector(".all-cities")
 let cities_display = document.querySelector("#cities_display");
 
 let paris_time = document.querySelector("#parisTime")
