@@ -14,7 +14,6 @@ function ChangeCity(event) {
             cityTimeZone = moment.tz.guess();
             cityDisplay.innerHTML =
                 `
-        <a href="/">HOme</a>
         <div class="paris city">
             <h1 class="name">My Current Location</h1>
             <hr />
